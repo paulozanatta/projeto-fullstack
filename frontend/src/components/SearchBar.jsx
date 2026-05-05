@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 
+import { TextField, Button, Box, Alert } from "@mui/material";
+
 function SearchBar() {
   const [texto, setTexto] = useState("");
   const { buscarFilmes, erro } = useContext(MovieContext);
@@ -11,20 +13,23 @@ function SearchBar() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Digite o nome do filme"
+    <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3 }}>
+      <Box sx={{ display: "flex", gap: 2 }}>
+        <TextField
+          fullWidth
+          label="Digite o nome do filme"
+          variant="outlined"
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
         />
-        <button type="submit">Buscar</button>
-      </form>
 
-      {/* Mensagem de erro (validação + API) */}
-      {erro && <p style={{ color: "red" }}>{erro}</p>}
-    </div>
+        <Button variant="contained" type="submit">
+          Buscar
+        </Button>
+      </Box>
+
+      {erro && <Alert severity="error" sx={{ mt: 2 }}>{erro}</Alert>}
+    </Box>
   );
 }
 

@@ -2,14 +2,19 @@ import { MovieProvider } from "../contexts/MovieContext";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 
+import { Container, Typography } from "@mui/material";
+
 function App() {
   return (
     <MovieProvider>
-      <div>
-        <h1>Buscador de Filmes</h1>
+      <Container maxWidth="md">
+        <Typography variant="h3" align="center" gutterBottom>
+          🎬 Buscador de Filmes
+        </Typography>
+
         <SearchBar />
         <MovieList />
-      </div>
+      </Container>
     </MovieProvider>
   );
 }

@@ -1,10 +1,22 @@
+import { Card, CardMedia, CardContent, Typography } from "@mui/material";
+
 function MovieCard({ filme }) {
   return (
-    <div style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-      <h3>{filme.Title}</h3>
-      <p>Ano: {filme.Year}</p>
-      <img src={filme.Poster} alt={filme.Title} width="150" />
-    </div>
+    <Card>
+      <CardMedia
+        component="img"
+        height="300"
+        image={filme.Poster !== "N/A" ? filme.Poster : ""}
+        alt={filme.Title}
+      />
+
+      <CardContent>
+        <Typography variant="h6">{filme.Title}</Typography>
+        <Typography variant="body2" color="text.secondary">
+          Ano: {filme.Year}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 

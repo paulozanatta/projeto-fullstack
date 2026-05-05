@@ -2,17 +2,27 @@ import { useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
 import MovieCard from "./MovieCard";
 
+import { Grid, CircularProgress, Box } from "@mui/material";
+
 function MovieList() {
   const { filmes, loading } = useContext(MovieContext);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" mt={3}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
-    <div>
+    <Grid container spacing={2}>
       {filmes.map((filme) => (
-        <MovieCard key={filme.imdbID} filme={filme} />
+        <Grid item xs={12} sm={6} md={4} key={filme.imdbID}>
+          <MovieCard filme={filme} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 }
 
