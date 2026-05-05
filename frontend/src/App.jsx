@@ -1,8 +1,16 @@
+import { MovieProvider } from "../contexts/MovieContext";
+import SearchBar from "./SearchBar";
+import MovieList from "./MovieList";
+
 function App() {
   return (
-    <div>
-      <h1>Projeto Fullstack - Filmes</h1>
-    </div>
+    <MovieProvider>
+      <div>
+        <h1>Buscador de Filmes</h1>
+        <SearchBar />
+        <MovieList />
+      </div>
+    </MovieProvider>
   );
 }
 
