@@ -6,12 +6,15 @@ function MovieCard({ filme }) {
       <CardMedia
         component="img"
         height="300"
-        image={filme.Poster !== "N/A" ? filme.Poster : ""}
+        image={filme.Poster && filme.Poster !== "N/A" ? filme.Poster : ""}
         alt={filme.Title}
       />
 
       <CardContent>
-        <Typography variant="h6">{filme.Title}</Typography>
+        <Typography variant="h6">
+          {filme.Title}
+        </Typography>
+
         <Typography variant="body2" color="text.secondary">
           Ano: {filme.Year}
         </Typography>

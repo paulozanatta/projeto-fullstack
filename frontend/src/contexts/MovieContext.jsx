@@ -1,3 +1,5 @@
+
+
 import { createContext, useReducer } from "react";
 
 export const MovieContext = createContext();
@@ -38,7 +40,7 @@ export const MovieProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `https://www.omdbapi.com/?apikey=SUA_CHAVE&s=${nome}`
+        `https://www.omdbapi.com/?apikey=thewdb&s=${nome}`
       );
       const data = await response.json();
 
