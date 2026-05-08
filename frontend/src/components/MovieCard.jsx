@@ -1,25 +1,20 @@
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
-
 function MovieCard({ filme }) {
   return (
-    <Card>
-      <CardMedia
-        component="img"
-        height="300"
-        image={filme.Poster && filme.Poster !== "N/A" ? filme.Poster : ""}
+    <div className="movie-card">
+      <img
+        src={
+          filme.Poster !== "N/A"
+            ? filme.Poster
+            : "https://via.placeholder.com/300x450?text=Sem+Imagem"
+        }
         alt={filme.Title}
       />
 
-      <CardContent>
-        <Typography variant="h6">
-          {filme.Title}
-        </Typography>
-
-        <Typography variant="body2" color="text.secondary">
-          Ano: {filme.Year}
-        </Typography>
-      </CardContent>
-    </Card>
+      <div className="movie-info">
+        <h3>{filme.Title}</h3>
+        <p>{filme.Year}</p>
+      </div>
+    </div>
   );
 }
 

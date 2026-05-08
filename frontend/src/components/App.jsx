@@ -1,3 +1,5 @@
+import "./App.css";
+
 import { MovieProvider } from "../contexts/MovieContext";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";

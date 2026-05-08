@@ -1,19 +1,22 @@
 import { useContext } from "react";
 import { MovieContext } from "../contexts/MovieContext";
+import MovieCard from "./MovieCard";
 
 function MovieList() {
-  const { filmes } = useContext(MovieContext);
+  const { filmes, loading } = useContext(MovieContext);
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
 
   if (!filmes || filmes.length === 0) {
     return <p>Nenhum filme encontrado</p>;
   }
 
   return (
-    <div>
+    <div className="movie-grid">
       {filmes.map((filme) => (
-        <div key={filme.imdbID}>
-          <h3>{filme.Title}</h3>
-        </div>
+        <MovieCard key={filme.imdbID} filme={filme} />
       ))}
     </div>
   );

@@ -19,7 +19,11 @@ function reducer(state, action) {
       return { filmes: action.payload, loading: false, erro: null };
 
     case "ERRO":
-      return { ...state, loading: false, erro: action.payload };
+      return {
+        filmes: [],
+        loading: false,
+        erro: action.payload
+      };
 
     default:
       return state;
